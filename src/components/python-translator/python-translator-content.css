@@ -1,0 +1,28 @@
+.translator-content{
+    display: flex;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 1);
+    padding: 10px;
+    margin-top: 10px;
+    font-family: 'Lucida Console', Monaco, monospace;
+}
+
+.translator-content-textarea{
+    width: 100%;
+    height: 100%;
+    color: white;
+    font-family: 'Lucida Console', Monaco, monospace;
+    overflow: auto; /* Enable horizontal and vertical scrolling */
+    white-space: pre;  /* Preserve whitespace, text only breaks on line breaks (or pre-wrap) */
+    resize: none;  /* Prevent resizing */
+    border: none;  /* Remove border */
+    padding: 0;  /* Remove default padding */
+    margin: 0;  /* Remove default margin */
+    box-sizing: border-box;  /* Ensure padding and borders are included in the element's total width and height */
+    font-size: 14px;
+    background-color: rgba(0, 0, 0, 1);
+    outline: none;  /* Remove the default focus outline */
+    resize: none; /* Prevent resizing */
+    /* word-spacing: 0.5ch; /* Adjust spacing between words */
+}

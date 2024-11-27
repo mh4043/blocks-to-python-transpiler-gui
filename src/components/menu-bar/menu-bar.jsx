@@ -13,6 +13,7 @@ import Box from '../box/box.jsx';
 import Button from '../button/button.jsx';
 import CommunityButton from './community-button.jsx';
 import ShareButton from './share-button.jsx';
+import PythonTranslatorButton from '../python-translator/python-translator-button.jsx';
 import {ComingSoonTooltip} from '../coming-soon/coming-soon.jsx';
 import Divider from '../divider/divider.jsx';
 import SaveStatus from './save-status.jsx';
@@ -71,6 +72,10 @@ import {
     openSettingsMenu,
     closeSettingsMenu
 } from '../../reducers/menus';
+import {
+    getIsTranslatorOpened,
+    openCloseTranslator
+} from '../../reducers/python-translator.js'
 
 import collectMetadata from '../../lib/collect-metadata';
 
@@ -181,6 +186,7 @@ class MenuBar extends React.Component {
             'handleSetMode',
             'handleKeyPress',
             'handleRestoreOption',
+            'handleClickPythonTranslator',
             'getSaveToComputerHandler',
             'restoreOptionMessage'
         ]);
@@ -238,6 +244,9 @@ class MenuBar extends React.Component {
                 waitForUpdate(false); // immediately transition to project page
             }
         }
+    }
+    handleClickPythonTranslator(){
+        this.props.onClickPythonTranslator();
     }
     handleSetMode (mode) {
         return () => {
@@ -712,6 +721,20 @@ class MenuBar extends React.Component {
                             <SaveStatus />
                         )}
                     </div>
+                    <PythonTranslatorButton
+                        className={classNames(
+                            styles.menuBarItem,
+                            styles.hoverable,
+                            styles.pythonTranslatorButton
+                        )}
+                        /*
+                        onClick={() => {
+                            this.handleClickPythonTranslator();
+                        }}
+                        */
+                        onClick={this.handleClickPythonTranslator}
+                        isTranslatorOpened={this.props.isTranslatorOpened}
+                    />
                     {this.props.sessionExists ? (
                         this.props.username ? (
                             // ************ user is logged in ************
@@ -865,6 +888,7 @@ MenuBar.propTypes = {
     intl: intlShape,
     isRtl: PropTypes.bool,
     isShared: PropTypes.bool,
+    isTranslatorOpened: PropTypes.bool,
     isShowingProject: PropTypes.bool,
     isTotallyNormal: PropTypes.bool,
     isUpdating: PropTypes.bool,
@@ -897,6 +921,7 @@ MenuBar.propTypes = {
     onClickSave: PropTypes.func,
     onClickSaveAsCopy: PropTypes.func,
     onClickSettings: PropTypes.func,
+    onClickPythonTranslator: PropTypes.func,
     onLogOut: PropTypes.func,
     onOpenRegistration: PropTypes.func,
     onOpenTipLibrary: PropTypes.func,
@@ -942,6 +967,7 @@ const mapStateToProps = (state, ownProps) => {
         isRtl: state.locales.isRtl,
         isUpdating: getIsUpdating(loadingState),
         isShowingProject: getIsShowingProject(loadingState),
+        isTranslatorOpened: getIsTranslatorOpened(state),
         locale: state.locales.locale,
         loginMenuOpen: loginMenuOpen(state),
         modeMenuOpen: modeMenuOpen(state),
@@ -982,7 +1008,8 @@ const mapDispatchToProps = dispatch => ({
     onClickSave: () => dispatch(manualUpdateProject()),
     onClickSaveAsCopy: () => dispatch(saveProjectAsCopy()),
     onSeeCommunity: () => dispatch(setPlayer(true)),
-    onSetTimeTravelMode: mode => dispatch(setTimeTravel(mode))
+    onSetTimeTravelMode: mode => dispatch(setTimeTravel(mode)),
+    onClickPythonTranslator: () => dispatch(openCloseTranslator()),
 });
 
 export default compose(

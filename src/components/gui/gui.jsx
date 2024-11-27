@@ -31,6 +31,8 @@ import DragLayer from '../../containers/drag-layer.jsx';
 import ConnectionModal from '../../containers/connection-modal.jsx';
 import TelemetryModal from '../telemetry-modal/telemetry-modal.jsx';
 
+import PythonTranslator from '../python-translator/python-translator.jsx';
+
 import layout, {STAGE_SIZE_MODES} from '../../lib/layout-constants';
 import {resolveStageSize} from '../../lib/screen-utils';
 import {themeMap} from '../../lib/themes';
@@ -89,6 +91,7 @@ const GUIComponent = props => {
         isPlayerOnly,
         isRtl,
         isShared,
+        isTranslatorOpened,
         isTelemetryEnabled,
         isTotallyNormal,
         loading,
@@ -228,6 +231,7 @@ const GUIComponent = props => {
                     className={styles.menuBarPosition}
                     enableCommunity={enableCommunity}
                     isShared={isShared}
+                    isTranslatorOpened={isTranslatorOpened}
                     isTotallyNormal={isTotallyNormal}
                     logo={logo}
                     renderLogin={renderLogin}
@@ -357,6 +361,14 @@ const GUIComponent = props => {
                                 vm={vm}
                             />
                             <Box className={styles.targetWrapper}>
+
+                                {isTranslatorOpened ? (
+                                    <PythonTranslator 
+                                        isTranslatorOpened={isTranslatorOpened}
+                                        vm={vm}
+                                    />
+                                ) : null}
+
                                 <TargetPane
                                     stageSize={stageSize}
                                     vm={vm}
@@ -404,6 +416,7 @@ GUIComponent.propTypes = {
     isPlayerOnly: PropTypes.bool,
     isRtl: PropTypes.bool,
     isShared: PropTypes.bool,
+    isTranslatorOpened: PropTypes.bool,
     isTotallyNormal: PropTypes.bool,
     loading: PropTypes.bool,
     logo: PropTypes.string,
@@ -456,6 +469,7 @@ GUIComponent.defaultProps = {
     enableCommunity: false,
     isCreating: false,
     isShared: false,
+    isTranslatorOpened: false,
     isTotallyNormal: false,
     loading: false,
     showComingSoon: false,
@@ -466,7 +480,8 @@ const mapStateToProps = state => ({
     // This is the button's mode, as opposed to the actual current state
     blocksId: state.scratchGui.timeTravel.year.toString(),
     stageSizeMode: state.scratchGui.stageSize.stageSize,
-    theme: state.scratchGui.theme.theme
+    theme: state.scratchGui.theme.theme,
+    isTranslatorOpened: state.scratchGui.pythonTranslator.isTranslatorOpened
 });
 
 export default injectIntl(connect(

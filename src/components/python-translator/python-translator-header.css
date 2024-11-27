@@ -1,0 +1,46 @@
+.translator-header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between; /* Left and right side will be at extreme ends */
+    align-items: center; /* Center content vertically */
+    width: 100%;
+    height: fit-content;
+    border-radius: 0.5rem;
+    border: 1px solid black;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.left-side{
+    display: flex;
+    flex-direction: column; /* Stack elements vertically */
+    justify-content: space-between; /* Distribute space between h4 and p */
+    height: 100%; /* Ensure full height to align p at the bottom */
+}
+
+.left-side h4 {
+    align-self: flex-start; /* Align header to the left */
+}
+
+.left-side p {
+    align-self: flex-start; /* Align paragraph to the left */
+    margin-top: auto; /* Push the paragraph to the bottom */
+    font-style: italic;
+    font-size: 11px;
+    color: gray;
+    margin-bottom: 0px;
+}
+
+.right-side{
+    display: flex;
+    align-items: center; /* Center content vertically */
+}
+
+.button-group{
+    align-self: center; /* Content is vertically centered inside right-side div */
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: fit-content;
+    height: fit-content;
+}

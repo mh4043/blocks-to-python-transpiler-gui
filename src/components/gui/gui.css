@@ -226,6 +226,9 @@
     */
     /* TODO this also breaks the thermometer menu */
     /* overflow: hidden; */
+
+    /* to overlay Python translator over stage and target when open */
+    position: relative;
 }
 
 .extension-button-container {

@@ -1,0 +1,10 @@
+@import "../../css/colors.css";
+
+.python-translator-copy-icon {
+    margin-right: 0 !important;
+    height: 1rem;
+}
+
+.button{
+    margin-left: 10px;
+}
