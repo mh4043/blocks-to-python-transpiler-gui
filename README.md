@@ -10,7 +10,7 @@ In the top right corner, a you can click on the transpiler icon, which will open
 The transpiler will then translate added blocks or scripts of blocks and all required assets to Python code in real time and show them in the transpiler window.
 You can then copy the Python code and paste it in arbitrary IDE which supports Python and run it. Python code should show the same or similar result as the Scratch display window.
 
-_TODO: slika z odprtm transpilerjam_
+[Opened transpiler window in Scratch window](https://github.com/user-attachments/assets/325ab241-8566-4ba2-bdb0-f66b6552bad9)
 
 ### Notes
 
