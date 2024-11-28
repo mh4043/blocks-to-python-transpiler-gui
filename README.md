@@ -6,9 +6,9 @@ Specifically this repositroy contains the GUI part of Scratch and transpiler - R
 ## Description
 
 This project is basically the same as the original Scratch GUI project, but with the added Python transpiler.
-In the top right corner, a user can click on the transpiler icon, which will open the transpiler in the bottom right corner.
+In the top right corner, a you can click on the transpiler icon, which will open the transpiler in the bottom right corner.
 The transpiler will then translate added blocks or scripts of blocks and all required assets to Python code in real time and show them in the transpiler window.
-A user can then copy the Python code and paste it in arbitrary IDE which support Python and run it. Python code should show the same or similar result as the Scratch display window.
+You can then copy the Python code and paste it in arbitrary IDE which supports Python and run it. Python code should show the same or similar result as the Scratch display window.
 
 _TODO: slika z odprtm transpilerjam_
 
@@ -17,7 +17,7 @@ _TODO: slika z odprtm transpilerjam_
 - Transpiler will only translate blocks if it's open, but it will do that in real time. If for some reason it doesn't translate, you can manually translate it with the click on a button in the transpiler window.
 - All blocks supported except User defined blocks, sound effects and partially image effects.
 - Transpiler will only translate scripts of blocks that start with an event block.
-- You need to supply to Python program on startup assets from Scratch - download sprites by right clicking on sprites in sprite window, stage backdrops and sounds by right clicking on backdrops or sounds in stage window.
+- You need to supply assets from Scratch to Python program on startup - download sprites by right clicking on sprites in sprite window, stage backdrops and sounds by right clicking on backdrops or sounds in stage window.
 - In Python code, pygame works only with bitmap images, so it converts vector images (like svg) to png. It can't process some tags, for example text. Because of this, some images might not be shown correctly - specifically text. To prevent this, you can convert images to bitmap format inside Scratch website.
 
 ## Installation
