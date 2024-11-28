@@ -1,0 +1,5 @@
+pygame-ce==2.5.1
+pygame_gui==0.6.12
+numpy
+sounddevice
+pillow
