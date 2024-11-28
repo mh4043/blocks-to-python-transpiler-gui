@@ -1,3 +1,28 @@
+# Scratch blocks to Python transpiler GUI
+
+This is a project for translating Scratch blocks and scripts to Python code. 
+Specifically this repositroy contains the GUI part of Scratch and transpiler - React components that make up the interface for creating and running Scratch 3.0 projects.
+
+## Description
+
+This project is basically the same as the original Scratch GUI project, but with the added Python transpiler.
+In the top right corner, a user can click on the transpiler icon, which will open the transpiler in the bottom right corner.
+The transpiler will then translate added blocks or scripts of blocks and all required assets to Python code in real time and show them in the transpiler window.
+A user can then copy the Python code and paste it in arbitrary IDE which support Python and run it. Python code should show the same or similar result as the Scratch display window.
+
+_TODO: slika z odprtm transpilerjam_
+
+### Notes
+
+- Transpiler will only translate blocks if it's open, but it will do that in real time. If for some reason it doesn't translate, you can manually translate it with the click on a button in the transpiler window.
+- All blocks supported except User defined blocks, sound effects and partially image effects.
+- Transpiler will only translate scripts of blocks that start with an event block.
+- In Python code, pygame works only with bitmap images, so it converts 
+
+## Prerequisites
+
+
+
 # scratch-gui
 
 Scratch GUI is a set of React components that comprise the interface for creating and running Scratch 3.0 projects
